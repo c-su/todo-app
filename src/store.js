@@ -5,11 +5,15 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    count: 0,
+    tasks: [],
   },
   mutations: {
-    increment: state => state.count++,
-    decrement: state => state.count--,
+    addedTask: (state, task) => {
+      state.tasks.push(task);
+    },
+    removedTask: (state, index) => {
+      state.tasks.splice(index, 1);
+    },
   },
   actions: {
 
