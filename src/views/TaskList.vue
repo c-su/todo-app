@@ -4,7 +4,7 @@
     <TaskRegister/>
     <ul>
       <li v-for="(task, index) in tasks" :key="task.id">
-        <TaskComp :task="task"/>
+        <TaskItem :task="task"/>
         <button @click="removeTask(index)">✘</button>
       </li>
     </ul>
@@ -12,15 +12,14 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import TaskRegister from '@/components/TaskRegister.vue';
-import TaskComp from '@/components/Task.vue';
+import TaskItem from '@/components/TaskItem.vue';
 import Task from '@/domain/Task.js';
 
 export default {
   name: 'task-list',
   components: {
-    TaskComp,
+    TaskItem,
     TaskRegister,
   },
   computed: {
@@ -31,7 +30,7 @@ export default {
   methods: {
     removeTask(index) {
       this.$store.state.tasks.splice(index, 1);
-    }
-  }
+    },
+  },
 };
 </script>

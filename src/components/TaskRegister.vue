@@ -1,5 +1,8 @@
 <template>
-  <button @click="addTask">タスクを追加する</button>
+  <form @submit.prevent="addTask">
+    <input type="text" v-model="title"/>
+    <button type="submit" name="button">タスクを追加</button>
+  </form>
 </template>
 
 <script>
@@ -11,13 +14,14 @@ export default {
   data() {
     return {
       count: 0,
+      title: '',
     };
   },
   methods: {
     addTask() {
-      const task = new Task('テスト', this.count++);
+      const task = new Task(this.title, ++this.count);
       this.$store.commit('addedTask', task);
-    }
+    },
   },
 };
 </script>

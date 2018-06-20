@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>{{ title + this.task.id }}</h2>
+    <h2>{{ this.task.id }}:{{ title }}</h2>
     <p>{{ status }}</p>
   </div>
 </template>
